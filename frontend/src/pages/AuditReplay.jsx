@@ -25,7 +25,7 @@ function GlobalLog() {
             <span className="w-24 shrink-0 text-[12.5px] text-mute">{clock(s.created_at)}</span>
             <span className="w-24 shrink-0 font-semibold">{s.case_id ? <Link className="underline" to={`/audit/${s.case_id}`}>{s.case_id}</Link> : <span className="text-mute">system</span>}</span>
             <span className="w-32 shrink-0 text-mute">{STAGE[s.kind] || s.kind}</span>
-            <span className="min-w-0 flex-1"><span className="text-mute">{s.actor}:</span> {s.summary}</span>
+            <span className="min-w-0 flex-1 basis-full [overflow-wrap:anywhere] sm:basis-0"><span className="text-mute">{s.actor}:</span> {s.summary}</span>
           </li>
         ))}
         {data && !data.length && <li className="px-3 py-6 text-center text-mute">No entries.</li>}
@@ -102,7 +102,7 @@ export default function AuditReplay() {
               <div key={step.id} className="fade-in mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                 <div>
                   <div className="eyebrow">{STAGE[step.kind] || step.kind}</div>
-                  <h2 className="mt-1 text-[22px] font-bold leading-snug">{step.summary}</h2>
+                  <h2 className="mt-1 text-[22px] font-bold leading-snug [overflow-wrap:anywhere]">{step.summary}</h2>
                   <dl className="mt-4 grid grid-cols-[80px_1fr] gap-y-1.5 text-sm">
                     <dt className="text-mute">Time</dt><dd className="font-semibold">{clock(step.created_at)}</dd>
                     <dt className="text-mute">Actor</dt><dd className="font-semibold">{step.actor}</dd>
@@ -119,10 +119,10 @@ export default function AuditReplay() {
                   <li key={s.id}>
                     <button onClick={() => { setPlaying(false); setI(k); document.getElementById('replay')?.scrollIntoView({ behavior: 'smooth' }) }}
                       aria-current={k === i ? 'step' : undefined}
-                      className={`flex w-full gap-4 px-3 py-2.5 text-left text-sm ${k === i ? 'font-bold text-ink' : k > i ? 'text-mute' : ''}`}>
+                      className={`flex w-full flex-wrap gap-x-4 gap-y-0.5 px-3 py-2.5 text-left text-sm sm:flex-nowrap ${k === i ? 'font-bold text-ink' : k > i ? 'text-mute' : ''}`}>
                       <span className="w-24 shrink-0 text-[12.5px] text-mute">{clock(s.created_at)}</span>
                       <span className="w-32 shrink-0 text-mute">{STAGE[s.kind] || s.kind}</span>
-                      <span className="min-w-0">{s.summary}</span>
+                      <span className="min-w-0 basis-full [overflow-wrap:anywhere] sm:basis-auto">{s.summary}</span>
                     </button>
                   </li>
                 ))}
