@@ -1,0 +1,15 @@
+# Optional infrastructure for the full stack. The app also runs on SQLite with no services.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: resolveos
+      POSTGRES_PASSWORD: resolveos
+      POSTGRES_DB: resolveos
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+volumes:
+  pgdata:

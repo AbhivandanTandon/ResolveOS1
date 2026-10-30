@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.db
+.env
+
+# Local tools and large local outputs
+*.zip
+*.mp4
+*.db-journal
+*.db-wal
+.pytest_cache/

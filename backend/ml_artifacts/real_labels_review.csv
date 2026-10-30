@@ -1,0 +1,126 @@
+source,native_label,label,conf,text
+banking77,card_payment_not_recognised,DUPLICATE_SUBMISSION,0.7,I didn't do a payment and I have it now.
+banking77,transaction_charged_twice,LEDGER_MISMATCH,0.7,I have been overcharged.
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.8,Why am I being asked to have an identity check
+banking77,card_payment_not_recognised,COMPLIANCE_HOLD,0.7,I've got charges on my account I did not authorize. Can I get this money back from the last couple of days that it's been coming out? I also need to freeze my card.
+banking77,card_payment_not_recognised,LEDGER_MISMATCH,0.8,A payment on my statement is wrong.
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.6,I haven't received the cash from the check I deposited.
+banking77,balance_not_updated_after_bank_transfer,LEDGER_MISMATCH,0.8,I transferred some money but the balance stayed the same.
+banking77,cash_withdrawal_not_recognised,LEDGER_MISMATCH,0.7,The app made a mistake and said I made a cash withdrawal.
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.7,How do I show this stupid system that this is really my identity?
+banking77,pending_transfer,NETWORK_TIMEOUT,0.8,I am still waiting for a money transfer to process.
+banking77,beneficiary_not_allowed,COMPLIANCE_HOLD,0.7,i tried to transfer cryptocurrency into my account but was denied
+banking77,transfer_not_received_by_recipient,NETWORK_TIMEOUT,0.8,I did a money transaction and the recipient doesn't see it
+banking77,beneficiary_not_allowed,NETWORK_TIMEOUT,0.6,My beneficiary didn't receive my transfer
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.8,I don't have the means to prove my identity.
+banking77,pending_top_up,NETWORK_TIMEOUT,0.6,Why is my top up not completing?
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.8,My Identity verification hasn't passed yet is it possible to use my account?
+banking77,direct_debit_payment_not_recognised,LEDGER_MISMATCH,0.7,Is there a way for you to find out why my account was deducted from a seller when I didn't approve of it?
+banking77,transfer_not_received_by_recipient,NETWORK_TIMEOUT,0.7,my friend has not got the money I sent last week.
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.7,where is my money from this morning
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.6,Why does my payment appear as pending?
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.6,The cheque I deposited isn't showing in my account
+banking77,cash_withdrawal_not_recognised,LEDGER_MISMATCH,0.7,I didn't withdraw cash but I see that transaction on my app
+banking77,pending_top_up,NETWORK_TIMEOUT,0.7,Why is my top-up still pending?
+banking77,cancel_transfer,INVALID_BENEFICIARY,0.8,How can I cancel a transaction to a wrong account?
+banking77,verify_source_of_funds,COMPLIANCE_HOLD,0.9,I must verify the source of my funds
+banking77,top_up_reverted,NETWORK_TIMEOUT,0.7,What happened to the money that I deposited?
+banking77,Refund_not_showing_up,NETWORK_TIMEOUT,0.7,"Three months ago I bought a new house for my cat, fluffy.  Unfortunately Fluffy was not a fan of the house and it had to be returned to Pet Smart last week.  They said they have sent a refund but it's not there, can you tell me where it is?"
+banking77,beneficiary_not_allowed,INVALID_BENEFICIARY,0.95,Why can't I use this beneficiary?
+banking77,transfer_fee_charged,LEDGER_MISMATCH,0.7,I tried to transfer money to a receiver and they didn't get the right amount. What is going on and who do I contact to help me?
+banking77,verify_top_up,COMPLIANCE_HOLD,0.6,Why does top-up need verifying?
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.7,Why do you need so much information about my identity?
+banking77,pending_cash_withdrawal,NETWORK_TIMEOUT,0.6,"Hey, I tried to withdraw some cash earlier and it's saying it's pending? Will I be charged for this?"
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.75,Why isn't my cheque deposit showing on my account?  I though it would be faster and would like to to look into it and help.
+banking77,balance_not_updated_after_bank_transfer,NETWORK_TIMEOUT,0.8,I did a transfer to my account but it doesn't show up
+banking77,verify_my_identity,COMPLIANCE_HOLD,0.7,What do I need to show who I am?
+banking77,Refund_not_showing_up,NETWORK_TIMEOUT,0.7,I am noticing that a refund of a large purchase still has not been credited to my account. I contacted the merchant a few days ago and he assured me that he would submit it right away. Is there a status update?
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.9,My identity wasn't verified
+banking77,pending_transfer,NETWORK_TIMEOUT,0.8,how long will it take for my transfer to stop pending
+banking77,pending_transfer,NETWORK_TIMEOUT,0.85,I finished my transfer. I am having an issue with it still pending. It has been a long time and i'm growing impatient
+banking77,cash_withdrawal_not_recognised,LEDGER_MISMATCH,0.8,there is money in my account that i didnt put there
+banking77,top_up_failed,INSUFFICIENT_FUNDS,0.7,"I really need money from my card today, but my card is getting declined. Please help!!"
+banking77,declined_transfer,INSUFFICIENT_FUNDS,0.6,"While doing a transfer, it says declined."
+banking77,balance_not_updated_after_bank_transfer,LEDGER_MISMATCH,0.8,I've transferred money into my account but the balance is the same
+banking77,beneficiary_not_allowed,INVALID_BENEFICIARY,0.7,The app won't let me transfer money to a beneficiary
+banking77,cancel_transfer,INVALID_BENEFICIARY,0.7,"I stupidly initiated a rent payment from the wrong account yesterday. It can't be paid from that account, but it really needs to get paid on time. Am I able to move the payment to the right account?"
+banking77,balance_not_updated_after_bank_transfer,LEDGER_MISMATCH,0.9,"After the transfer, the balance did not update."
+banking77,pending_cash_withdrawal,NETWORK_TIMEOUT,0.8,"I tried to take money from my card, but it didn't work. Later I saw that the transaction is still in progress. What's goign on?"
+banking77,declined_card_payment,INSUFFICIENT_FUNDS,0.6,"I made a card payment, but it has been declined?"
+banking77,declined_card_payment,INSUFFICIENT_FUNDS,0.6,I've tried using my card multiple times and it keeps getting declined.
+banking77,card_payment_wrong_exchange_rate,LEDGER_MISMATCH,0.7,I think I was charged extra on my payment on last Saturday.  Maybe the exchange rate was wrong?  I'd like a refund.
+banking77,cancel_transfer,INVALID_BENEFICIARY,0.8,Can you help me to quickly cancel a transaction I accidentally did to the wrong account?
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.9,I have paid by my card but payment is still its coming as pending. I think there is some issue please check and let me know when the status will complete.
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.6,I deposited a cheque and its been days and I still haven't received the cash!!
+banking77,request_refund,LEDGER_MISMATCH,0.7,"I wasn't charged the correct amount for an item I purchased, how can I fix this?"
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.8,I am having difficulties to verify my identity.
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.9,How can I fix this?  There is a double charge on my account.
+banking77,balance_not_updated_after_bank_transfer,LEDGER_MISMATCH,0.8,Why is  my balance not updated?
+banking77,declined_card_payment,INSUFFICIENT_FUNDS,0.6,Why are the payments being declined on my new card?  I tried several times to use my new card to pay for my gas at the Shell station in my neighborhood.  I am very distressed about my new card not working.
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.8,Why is verifaction required for my Identity?
+banking77,pending_cash_withdrawal,NETWORK_TIMEOUT,0.7,My account shows up as pending after I received cash from the ATM earlier.  How can this be still pending? I've got the cash already.
+banking77,balance_not_updated_after_bank_transfer,LEDGER_MISMATCH,0.7,My account isn't showing a transfer I made.
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.6,"I Submitted a cheque couple of days ago, nothing happened to my account yet.What could be the possible issue?"
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,I made a payment that got charged twice instead of once.
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,A transaction posted twice to my account.
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,Hi. I noticed I have a duplicate charge which I have not made twice. Who should I talk to take care of this?
+banking77,Refund_not_showing_up,NETWORK_TIMEOUT,0.8,I've been checking my statement to see if I've received a refund I requested from a seller a while ago has arrived. But it has not. This should have come back to me already. Can you help me figure out why it's not here and get my money back?
+banking77,wrong_exchange_rate_for_cash_withdrawal,LEDGER_MISMATCH,0.7,"Hello, in these holidays i have been overcharged on the amount i have withdrawn on one of your ATMs. I did not had any clue about the horrible charges otherwise i would not have withdrawn."
+banking77,card_payment_not_recognised,NETWORK_TIMEOUT,0.6,I don't know if I made this payment on my card.
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,I was charged for the same thing twice
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,I was charged more than once for a card payment I made.
+banking77,transfer_fee_charged,LEDGER_MISMATCH,0.85,A receiver let me know that they didn't receive the full transfer I completed and that it was actually a bit less than what I sent. At this point I have to make another transfer to make up for the amount missing. Can you please follow up with what's going  on here?
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.7,How is my card payment still pending?
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.8,What other methods are there to verify my identity?
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.8,i need to proof my identity to you why and how?
+banking77,reverted_card_payment?,LEDGER_MISMATCH,0.6,I see a reverted payment on my account. Why has this happened?
+banking77,balance_not_updated_after_cheque_or_cash_deposit,LEDGER_MISMATCH,0.9,My balance is not right. It has not been updated for the cash or cheque deposit.
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.8,Why isn't my id verified?
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.9,My card is showing the same transaction over and over again.
+banking77,verify_my_identity,COMPLIANCE_HOLD,0.8,What do I need to do to perform identity checks?
+banking77,transfer_timing,NETWORK_TIMEOUT,0.8,"I just did a transfer, but don't see the money in my account. What's up?"
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.8,Why am I still not able to see the money I deposited a week ago? This is urgent!!
+banking77,beneficiary_not_allowed,INVALID_BENEFICIARY,0.8,It shows that the transfer on my account wasn't allowed.
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,"It seems my card payment was completed twice. I paid at the store previously and the first one did not seem to go through. After a second attempt, it did go through. I now see within the app that I have been charged twice with one of them pending. Can you please remove the pending amount because it is clearly something that was declined?"
+banking77,pending_transfer,NETWORK_TIMEOUT,0.85,A transfer to my account shows as still pending and I wanted to know how long it is suppose to take to clear.
+banking77,Refund_not_showing_up,NETWORK_TIMEOUT,0.6,I cannot view the refunded amount in my account.
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.7,I a having trouble proving my identity
+banking77,balance_not_updated_after_bank_transfer,LEDGER_MISMATCH,0.9,I had cash transferred but the balance did not change.
+banking77,transaction_charged_twice,DUPLICATE_SUBMISSION,0.95,I think there is a mistake.  I am being charged twice.
+banking77,transfer_not_received_by_recipient,NETWORK_TIMEOUT,0.8,"I sent money to someone but they haven't gotten it, what's going on?"
+banking77,pending_cash_withdrawal,NETWORK_TIMEOUT,0.85,"Hello. I have a transaction in my account listed as pending. I tried to use an ATM at the city centre, but the machine declined my card, and I did not receive the money. Why is the transaction still pending if I did not receive the money."
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.6,I've deposited a check in my account but the cash isn't showing as available.
+banking77,Refund_not_showing_up,NETWORK_TIMEOUT,0.6,I can't find my refund. Please help.
+banking77,balance_not_updated_after_bank_transfer,NETWORK_TIMEOUT,0.6,"Transferred to account is not successful, help please?"
+banking77,cash_withdrawal_not_recognised,COMPLIANCE_HOLD,0.7,"Please help me, its urgent. Someone has withdrawn money from my account as few hours before my wallet has been. Now i want to stop withdrawal of more money."
+banking77,pending_cash_withdrawal,NETWORK_TIMEOUT,0.8,"I have the cash already, my account still shows up as pending.  How can my account be still pending?"
+banking77,card_payment_not_recognised,COMPLIANCE_HOLD,0.7,After looking at the app I noticed a couple of payments I know I did not make. Is it possible someone has accessed my card? What is actually going on?
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.8,My purchases from this morning still have pending payments.
+banking77,card_payment_wrong_exchange_rate,LEDGER_MISMATCH,0.7,I have been charged way to much so something is apparently wrong with my exchange. I changed Russian Ruble into UK pounds.
+banking77,declined_transfer,INSUFFICIENT_FUNDS,0.7,Double check your funds may be declined
+banking77,balance_not_updated_after_bank_transfer,NETWORK_TIMEOUT,0.8,A few hours ago I made a bank transfer from my UK account but I don't see that it has arrived.   Can you check and see if all is ok please?
+banking77,transfer_not_received_by_recipient,NETWORK_TIMEOUT,0.6,I am just waiting on the completion of the transaction.
+banking77,top_up_reverted,LEDGER_MISMATCH,0.7,My topup got reverted. Please let me know if there is any issue in system.
+banking77,cash_withdrawal_not_recognised,COMPLIANCE_HOLD,0.7,Someone stole my wallet a couple of hours ago now and they have taken money from my account. Is there any way that you can help so I won't lose any more of my money.
+banking77,cash_withdrawal_not_recognised,LEDGER_MISMATCH,0.8,There is a withdrawal that isn't mind in the app.
+banking77,pending_transfer,NETWORK_TIMEOUT,0.8,"My transfer is still pending, why?"
+banking77,cash_withdrawal_not_recognised,COMPLIANCE_HOLD,0.7,I just lost my wallet and I think someone is using my card to withdraw my money. Can you please cancel or freeze my card?!!
+banking77,card_payment_wrong_exchange_rate,LEDGER_MISMATCH,0.7,Please check my payment from last Saturday as I feel I have been overcharged on the exchange rate.  Thank you.
+banking77,verify_source_of_funds,COMPLIANCE_HOLD,0.6,what is source of my money
+banking77,why_verify_identity,COMPLIANCE_HOLD,0.7,What happens if I use my account and my identity verification hasn't finished?
+banking77,pending_transfer,NETWORK_TIMEOUT,0.6,"My transfer is pending, why?"
+banking77,reverted_card_payment?,LATE_SUCCESS_EVENT,0.7,"I bought something and received it, but the payment went back to my account. Is the seller okay?"
+banking77,balance_not_updated_after_cheque_or_cash_deposit,NETWORK_TIMEOUT,0.6,My cheque deposit didn't seem to work.
+banking77,pending_transfer,NETWORK_TIMEOUT,0.8,Can you explain why my payment is still pending?
+banking77,pending_transfer,NETWORK_TIMEOUT,0.7,Why is the transaction not posting?
+banking77,pending_transfer,NETWORK_TIMEOUT,0.8,"I would like to know why my payment is still pending, can you help?"
+banking77,pending_cash_withdrawal,NETWORK_TIMEOUT,0.85,"Hi, I tried to withdraw some money from an ATM and the machine was broken.  It says that the transaction is still in progress.  Can you double check to see what's happening? I don't want to be charged since I was not able to withdraw the money."
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.75,I bought something this morning and the payment is still pending
+banking77,pending_transfer,NETWORK_TIMEOUT,0.6,"Transfers may show up as pending for up to one day while they are processed by one of our payment processors. Then, they will depart for the beneficiary accounts. Please also double-check that you have entered the correct account details. SEPA transfers can take up to two business days, and SWIFT transfers can take up to five business days."
+banking77,unable_to_verify_identity,COMPLIANCE_HOLD,0.8,"If you are waiting for verification, it can take 10 minutes to 60 minutes to get results.You will hear from us once we have it.  Please make sure your images are clear and photos of documents are readable. you have to be at least 18 years old and live withing the Economic Area of Europe or in Switzerland in order to open an account."
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.7,Is there a problem that makes my payments show pending?
+banking77,verify_source_of_funds,NETWORK_TIMEOUT,0.6,how do i track the moeney
+banking77,balance_not_updated_after_cheque_or_cash_deposit,COMPLIANCE_HOLD,0.6,"I deposited cash into my account a week ago and it is still not available, please tell me why? I need the cash back now."
+banking77,verify_source_of_funds,COMPLIANCE_HOLD,0.7,I want to know where the funds come from.
+banking77,reverted_card_payment?,LEDGER_MISMATCH,0.6,I was checking my statement and I think one of my card payments has reverted
+banking77,pending_card_payment,NETWORK_TIMEOUT,0.7,Why are my purchases from this morning still pending?

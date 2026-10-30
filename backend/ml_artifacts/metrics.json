@@ -1,0 +1,177 @@
+{
+  "triage_tfidf": {
+    "test_acc": 1.0,
+    "test_macro_f1": 1.0,
+    "hard_acc": 0.4769,
+    "hard_macro_f1": 0.4576,
+    "best_C": 0.1,
+    "validation_macro_f1": 1.0
+  },
+  "triage_embed_lr_sim_only": {
+    "test_acc": 1.0,
+    "test_macro_f1": 1.0,
+    "hard_acc": 0.7692,
+    "hard_macro_f1": 0.7609,
+    "best_C": 0.3,
+    "validation_macro_f1": 1.0
+  },
+  "triage_sim_only_on_real_heldout": {
+    "acc": 0.2778,
+    "macro_f1": 0.35,
+    "n": 18,
+    "label_quality": "Nemotron-generated labels; manually audit before interpreting as real-world accuracy"
+  },
+  "triage_embed_lr_sim_plus_real": {
+    "test_acc": 1.0,
+    "test_macro_f1": 1.0,
+    "hard_acc": 0.7692,
+    "hard_macro_f1": 0.7513,
+    "C_selected_on_synthetic_validation": 0.3
+  },
+  "triage_sim_plus_real_on_real_heldout": {
+    "acc": 0.6111,
+    "macro_f1": 0.5546,
+    "n": 18,
+    "label_quality": "Nemotron-generated labels; manually audit before interpreting as real-world accuracy"
+  },
+  "action_predictor": {
+    "test_acc": 0.9868,
+    "test_macro_f1": 0.9825,
+    "best_iteration": 162
+  },
+  "risk_model": {
+    "auc": 0.7564,
+    "brier_raw": 0.1764,
+    "brier_calibrated": 0.1805,
+    "ece_raw": 0.04,
+    "ece_calibrated": 0.0623,
+    "risk_level_acc": 0.6424
+  },
+  "retrieval_diagnostics": {
+    "n_queries": 65,
+    "exception_or_policy_hit_rate_at_k": 0.9846,
+    "wikipedia_results_default": 0,
+    "total_results": 390,
+    "retriever": "BGE + TF-IDF lexical + reciprocal-rank fusion"
+  },
+  "rag_eval": {
+    "ultra_rag": {
+      "n": 24,
+      "json_valid": 1.0,
+      "root_cause_acc": 1.0,
+      "action_acc": 0.875,
+      "unsafe_rate": 0.0,
+      "unsafe_rate_injected": 0.0,
+      "n_injected": 4
+    },
+    "ultra_no_rag": {
+      "n": 24,
+      "json_valid": 0.5,
+      "root_cause_acc": 0.667,
+      "action_acc": 0.583,
+      "unsafe_rate": 0.0,
+      "unsafe_rate_injected": 0.0,
+      "n_injected": 2
+    },
+    "nano_rag": {
+      "n": 24,
+      "json_valid": 1.0,
+      "root_cause_acc": 0.958,
+      "action_acc": 0.833,
+      "unsafe_rate": 0.0,
+      "unsafe_rate_injected": 0.0,
+      "n_injected": 4
+    }
+  },
+  "rejection_flow": {
+    "valid": 1.0,
+    "different": 1.0,
+    "safe": 0.9,
+    "expected": 1.0,
+    "n": 10
+  },
+  "config": {
+    "DRY_RUN": false,
+    "SEED": 42,
+    "WORKDIR": "/content/resolveos_ml",
+    "N_CASES": 6000,
+    "N_HARD_TEXT": 60,
+    "INJECTION_RATE": 0.04,
+    "RUNBOOK_VARIANTS": 1,
+    "CODES_PER_RAIL": 8,
+    "KB_CASES": 1500,
+    "MODEL_ULTRA": null,
+    "MODEL_SUPER": null,
+    "MODEL_NANO": null,
+    "EMBED_MODEL": "BAAI/bge-small-en-v1.5",
+    "EMBED_QUERY_PREFIX": "Represent this sentence for searching relevant passages: ",
+    "TRAIN_MAX": 5000,
+    "N_EVAL": 24,
+    "N_REJECT_TEST": 10,
+    "TOP_K": 6,
+    "USE_REAL_DATA": true,
+    "B77_BASE": "https://raw.githubusercontent.com/PolyAI-LDN/task-specific-datasets/master/banking_data/",
+    "B77_INTENT_REGEX": "transfer|payment|top_up|charged|balance|verify|refund|declined|pending|beneficiary|direct_debit|cash_withdrawal",
+    "N_B77_MAX": 300,
+    "CFPB_URL": "https://files.consumerfinance.gov/ccdb/complaints.csv.zip",
+    "CFPB_LOCAL": null,
+    "CFPB_PRODUCT_REGEX": "transfer|money service|checking|prepaid",
+    "N_CFPB": 300,
+    "REAL_LABEL_MIN_CONF": 0.6,
+    "REAL_VERIFY_FRAC": 0.05,
+    "REAL_WEIGHT": 2.0,
+    "KB_REAL_MESSAGES": 300,
+    "WIKI_TITLES": [
+      "Automated Clearing House",
+      "Unified Payments Interface",
+      "National Electronic Funds Transfer",
+      "Real-time gross settlement",
+      "Immediate Payment Service",
+      "SWIFT",
+      "Single Euro Payments Area",
+      "ISO 20022",
+      "Chargeback",
+      "Idempotence",
+      "Know your customer",
+      "Anti-money laundering",
+      "Payment processor",
+      "Payment gateway",
+      "Double-entry bookkeeping",
+      "Reconciliation (accounting)",
+      "Two-phase commit protocol",
+      "Eventual consistency",
+      "Circuit breaker design pattern",
+      "International sanctions"
+    ],
+    "PUBLIC_DOC_URLS": [],
+    "WORKERS": 12,
+    "MAX_LLM_CALLS": 3000
+  },
+  "models_used": {
+    "ultra": "nvidia/nemotron-3-ultra-550b-a55b",
+    "super": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+    "nano": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "embed": "st:BAAI/bge-small-en-v1.5"
+  },
+  "usage": {
+    "calls": 413,
+    "cache_hits": 8,
+    "failures": 46,
+    "prompt_tokens": {
+      "nvidia/nemotron-3.5-lightning-30b-a3b": 67283,
+      "nvidia/nemotron-3.5-super-vl-120b-a12b": 26654,
+      "nvidia/nemotron-3-ultra-550b-a55b": 116110
+    },
+    "completion_tokens": {
+      "nvidia/nemotron-3.5-lightning-30b-a3b": 14541,
+      "nvidia/nemotron-3.5-super-vl-120b-a12b": 13784,
+      "nvidia/nemotron-3-ultra-550b-a55b": 157410
+    }
+  },
+  "real_labels": {
+    "ultra_super_agreement": 0.8,
+    "n_checked": 15,
+    "source_rows": 300,
+    "labelled_rows": 142
+  }
+}

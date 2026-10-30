@@ -1,0 +1,96 @@
+"""ResolveOS hybrid retriever with provenance-aware source filtering.
+Default operational search excludes Wikipedia, raw customer text, and unverified external pages.
+Only load pickle files you created yourself: pickle can execute code.
+"""
+import pickle
+import re
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+OPERATIONAL_SOURCES = {"policy", "playbook", "runbook", "error_code", "past_case"}
+BACKGROUND_SOURCES = {"wikipedia", "public_doc"}
+
+class KnowledgeBase:
+    def __init__(self, path="resolveos_kb.pkl"):
+        with open(path, "rb") as f:
+            d = pickle.load(f)
+        self.meta = {k: v for k, v in d.items() if k not in ("chunks", "embeddings")}
+        self.chunks = d["chunks"]
+        self.E = np.asarray(d["embeddings"], dtype="float32")
+        self.backend = d["embed_backend"]
+        self.prefix = d.get("query_prefix", "")
+        self.sources = np.array([c.get("source", "unknown") for c in self.chunks])
+        self.exc = np.array([c.get("exc_type") or "" for c in self.chunks])
+        self.texts = [str(c.get("text", "")) for c in self.chunks]
+        self.lexical = TfidfVectorizer(ngram_range=(1, 2), sublinear_tf=True, max_features=200000)
+        self.X_lex = self.lexical.fit_transform(self.texts) if self.texts else None
+        self._embed = None
+
+    def _load_embedder(self):
+        if self.backend.startswith("st:"):
+            from sentence_transformers import SentenceTransformer
+            m = SentenceTransformer(self.backend[3:])
+            self._embed = lambda qs: m.encode(
+                [self.prefix + q for q in qs],
+                normalize_embeddings=True, convert_to_numpy=True
+            ).astype("float32")
+        elif self.backend.startswith("hash:"):
+            from sklearn.feature_extraction.text import HashingVectorizer
+            hv = HashingVectorizer(n_features=int(self.backend[5:]), alternate_sign=False, norm="l2", ngram_range=(1, 2))
+            self._embed = lambda qs: hv.transform(qs).toarray().astype("float32")
+        else:
+            raise ValueError("unknown embedding backend " + self.backend)
+
+    def search_batch(self, queries, k=6, source=None, exc_type=None, min_score=-1.0,
+                     include_background=False, allowed_sources=None, rrf_k=60):
+        if self._embed is None:
+            self._load_embedder()
+        queries = list(queries)
+        Q = self._embed(queries)
+        if allowed_sources is not None:
+            allowed = set([allowed_sources] if isinstance(allowed_sources, str) else allowed_sources)
+        elif source is not None:
+            allowed = set([source] if isinstance(source, str) else source)
+        else:
+            allowed = set(OPERATIONAL_SOURCES)
+            if include_background:
+                allowed |= BACKGROUND_SOURCES
+        mask = np.isin(self.sources, list(allowed))
+        if exc_type:
+            # Global policies apply to every case; other exception-specific chunks must match.
+            mask &= (self.exc == exc_type) | (self.sources == "policy")
+        idx = np.flatnonzero(mask)
+        if len(idx) == 0:
+            return [[] for _ in queries]
+
+        Xq = self.lexical.transform(queries)
+        out = []
+        candidate_n = min(len(idx), max(k * 10, 50))
+        for qi, q in enumerate(Q):
+            dense_scores = self.E[idx] @ q
+            lex_scores = (self.X_lex[idx] @ Xq[qi].T).toarray().ravel()
+            dense_order = np.argsort(-dense_scores)[:candidate_n]
+            lex_order = np.argsort(-lex_scores)[:candidate_n]
+            dense_rank = {int(idx[pos]): rank + 1 for rank, pos in enumerate(dense_order)}
+            lex_rank = {int(idx[pos]): rank + 1 for rank, pos in enumerate(lex_order)}
+            candidates = set(dense_rank) | set(lex_rank)
+            hits = []
+            for original_idx in candidates:
+                local_pos = int(np.searchsorted(idx, original_idx))
+                ds = float(dense_scores[local_pos])
+                ls = float(lex_scores[local_pos])
+                if ds < min_score:
+                    continue
+                rrf = (1.0 / (rrf_k + dense_rank[original_idx]) if original_idx in dense_rank else 0.0) + \
+                      (1.0 / (rrf_k + lex_rank[original_idx]) if original_idx in lex_rank else 0.0)
+                chunk = dict(self.chunks[original_idx])
+                hits.append(dict(score=rrf, rrf_score=rrf, dense_score=ds, lexical_score=ls,
+                                 source_url=chunk.get("source_url"), source_title=chunk.get("source_title"),
+                                 **{key: value for key, value in chunk.items()
+                                    if key not in ("source_url", "source_title")}))
+            hits.sort(key=lambda h: h["rrf_score"], reverse=True)
+            out.append(hits[:k])
+        return out
+
+    def search(self, query, **kw):
+        return self.search_batch([query], **kw)[0]
