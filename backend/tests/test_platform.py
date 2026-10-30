@@ -77,6 +77,17 @@ def test_empty_knowledge_search_lists_documents(client, operator):
     assert r.status_code == 200 and len(r.json()) > 1
 
 
+def test_notify_customer_with_ledger_behind_stays_open(client, operator, admin):
+    # With auto-run off, the reconcile waits for a person, so the ledger stays behind the processor.
+    assert client.put("/api/admin/config", headers=admin, json={"risk_auto_max": 0}).status_code == 200
+    case_id = run("network_timeout")["case_id"]
+    run("late_success", case_id=case_id)
+    d = detail(client, operator, case_id)
+    rec = next(r for r in d["recommendations"] if r["action_type"] == "NOTIFY_CUSTOMER")
+    d = client.post(f"/api/cases/{case_id}/recommendations/{rec['id']}/approve", headers=operator).json()
+    assert d["case"]["status"] == "monitoring" and d["executions"][-1]["verified"]
+
+
 def test_user_management(client, admin, operator):
     r = client.post("/api/admin/users", headers=admin, json={"email": "new@example.com", "name": "New Person", "role": "operator"})
     assert r.status_code == 201

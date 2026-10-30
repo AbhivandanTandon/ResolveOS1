@@ -77,7 +77,7 @@ export default function AuditReplay() {
       <Page wide>
         <div className="mb-6 flex flex-wrap items-center gap-3">
           <label className="text-sm font-semibold" htmlFor="case-pick">Case</label>
-          <select id="case-pick" className="field !w-auto !py-2" value={caseId || ''} onChange={(e) => nav(`/audit/${e.target.value}`)}>
+          <select id="case-pick" className="field !w-auto max-w-full !py-2" value={caseId || ''} onChange={(e) => nav(`/audit/${e.target.value}`)}>
             {(cases || []).map((x) => <option key={x.id} value={x.id}>{x.id} · {x.merchant} · {x.issue}</option>)}
           </select>
           {c && <span className="text-sm text-mute"><Money minor={c.amount_minor} currency={c.currency} /> · <Link className="underline" to={`/cases/${c.id}`}>Open case</Link></span>}

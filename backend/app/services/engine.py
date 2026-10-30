@@ -672,6 +672,11 @@ def execute(db: Session, case: PaymentCase, rec: Recommendation, actor: str) -> 
     elif t in ("REQUEST_MERCHANT_INFO", "ADD_CASE_NOTE"):
         exe.verified = True
         case.status = "monitoring"
+    elif t == "NOTIFY_CUSTOMER" and st["conflict"]:
+        # The message was sent; it just can't close a case whose ledger still disagrees with the processor.
+        exe.verified = True
+        case.status = "monitoring"
+        v["note"] = "Customer notified; processor and ledger still disagree, so the case stays open"
     else:
         exe.verified = not st["conflict"]
         case.status = "resolved" if exe.verified else "escalated"
